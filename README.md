@@ -2,10 +2,6 @@
 
 I haven't chosen a name for this project. It is a Java-based application which provides tools via the [Model Context Protocol Server](https://modelcontextprotocol.io/introduction):.
 
-## Project Description
-
-This project 
-
 ## Technologies Used
 
 *   **Asynchronous Programming:** `CompletableFuture` for non-blocking operations.
@@ -29,11 +25,11 @@ This project is built using Maven.
 
 1.  Clone the repository.
 2.  Run `mvn clean install` to build the project and download dependencies.
-3.  Copy Vyrtuous-0.1.jar to the root directory of the project as Vyrtuous.jar.
-4.  Configure the application with appropriate settings in .env and save it to ~/.env or add the fields to your .env file.
-5. **Linux:** docker build --platform=linux/arm64/v8 -t vyrtuous .
-5. **Mac:** docker buildx build --platform=linux/arm64/v8 -t vyrtuous --load .
-6. docker run -it --env-file ~/.env --rm vyrtuous
+3.  Copy target/MCP-0.1.jar to the root directory of the project as MCP.jar.
+4.  Add this to your mcp.json, make sure its nested in correct syntax for MCP.
+```json
+java -jar /path/to/MCP.jar
+```
 
 **Configuration:**
 
@@ -46,17 +42,15 @@ This project relies on the following key dependencies (listed in `pom.xml`):
 
 *   Apache Http Client
 *   Jackson Databind
-*   JDA
-*   [Metadata](https://github.com/brandongrahamcobb/Metadata)
 *   Spring-Boot
 
 ** Package Structure:**
 
-*   `package com.brandongcobb.vyrtuous.service;`:  This package is for services, indicating their role in servicing requests from other parts of the code.
-*   `package com.brandongcobb.vytuous.tools`: This package is for tools, self explanatory.
-*   `package com.brandongcobb.record`: This package is for recording tool statistics.
-*   `package com.brandongcobb.domain`: This package formalizes the connection between JSON tool schemas and their programatic fields.
-*   `package com.brandongcobb.component`: This package contains the [Model Context Protocol](https://modelcontextprotocol.io/introduction) server.
+*   `package com.brandongcobb.mcp.service;`:  This package is for services, indicating their role in servicing requests from other parts of the code.
+*   `package com.brandongcobb.mcp.tools`: This package is for tools, self explanatory.
+*   `package com.brandongcobb.mcp.record`: This package is for recording tool statistics.
+*   `package com.brandongcobb.mcp.domain`: This package formalizes the connection between JSON tool schemas and their programatic fields.
+*   `package com.brandongcobb.mcp.component`: This package contains the [Model Context Protocol](https://modelcontextprotocol.io/introduction) server.
 
 **[Model Context Protocol Server](https://modelcontextprotocol.io/introduction)**
 
